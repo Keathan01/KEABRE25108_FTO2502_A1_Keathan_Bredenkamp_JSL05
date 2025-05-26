@@ -40,7 +40,10 @@ const initialTasks = [
     status: "done",
   },
 ];
-let tasks=[...initialTasks];
+//
+const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+let tasks = savedTasks || [...initialTasks];
+
 //get containers
 const todoColumn = document.getElementById("todo-column");
 const doingColumn=document.getElementById("doing-column");
