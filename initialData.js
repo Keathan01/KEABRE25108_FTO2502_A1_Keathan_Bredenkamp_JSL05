@@ -135,9 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleSidebarBtn.textContent = '🚫 Hide Sidebar';
     }
   });
+  renderTasks();
 });
 // Handle add new task
-document.getElementById("add-task-btn").addEventListener("click", () => {
+function addNewTask() {
   const newTask = {
     id: Date.now(),
     title: "New Task",
@@ -145,18 +146,4 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
     status: "todo",
   };
   tasks.push(newTask);
-  renderTasks();
-  openModal(newTask);
-});
-
-document.getElementById("mobile-btn").addEventListener("click", () => {
-  const newTask = {
-    id: Date.now(),
-    title: "New Task",
-    description: "Task description here...",
-    status: "todo",
-  };
-  tasks.push(newTask);
-  renderTasks();
-  openModal(newTask);
-});
+  saveToLocalStorage(); 
