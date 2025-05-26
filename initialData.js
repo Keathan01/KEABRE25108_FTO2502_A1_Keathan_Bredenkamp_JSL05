@@ -134,5 +134,17 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
 // Initial render
 renderTasks();
 
-
+document.getElementById("mobile-btn").addEventListener("click", () => {
+  const newTask = {
+    id: Date.now(),
+    title: "New Task",
+    description: "Task description here...",
+    status: "todo",
+  };
+  tasks.push(newTask);
+  renderTasks();
+  openModal(newTask);
+});
+// Initial render
+renderTasks();
 

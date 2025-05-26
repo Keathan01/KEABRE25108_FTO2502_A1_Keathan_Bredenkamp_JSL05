@@ -168,10 +168,6 @@ body {
 
 }
 
-
-
-
-
 .desktop-btn {
   background-color: #635fc7;
   color: #ffff;
@@ -186,6 +182,9 @@ body {
 .mobile-only {
   display: none;
 }
+  #mobile-btn{
+    display: none;
+  }
 
 .heading {
   grid-area: heading;
@@ -257,6 +256,27 @@ body {
     width: 40px;
     margin-left: 20px;
   }
+  /* Add task btn on mobile*/
+  #mobile-btn{
+    display: inline;
+    margin-left: 170px;
+    margin-top: 20px;
+    border-radius: 100%;
+    border-radius: 50%;
+    width:  30px;
+    height: 30px;
+    color: #ffff;
+  background-color: #635fc7;
+  cursor: pointer;
+  border: none;
+
+  }
+ 
+#add-task-btn{
+  display: none;
+}
+
+
   body {
     display: grid;
     grid-template-columns: auto;
