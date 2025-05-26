@@ -239,7 +239,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: 20px;
-  grid-template-rows: 3;
+  grid-template-rows: auto auto auto;
   margin-top: 20px;
 }
 #ball-1 {
@@ -267,9 +267,7 @@ body {
   margin-bottom: 10px;
 }
 @media (max-width: 480px) {
-     .Sidebar {
-    transform: translateX(-100%); /* hidden on mobile */
-  }
+   
   .toggle-sidebar-btn {
     display: none; /* hide toggle button on mobile */
   }
@@ -365,5 +363,19 @@ body {
     .modal-content {
     width: 90%;
     padding: 20px;
+  }
+   .Sidebar {
+    transform: translateX(-100%) !important; /* ensure it's hidden */
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 70%; /* or whatever width fits */
+    height: 100%;
+  }
+
+  .Sidebar.sidebar-visible {
+    transform: translateX(0) !important; /* allow it to slide in */
   }
 }

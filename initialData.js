@@ -83,6 +83,7 @@ function renderTasks() {
     }
   });
 }
+
 //open modal and populate fields
 function openModal(task) {
   currentTask = task;
@@ -122,21 +123,23 @@ deleteBtn.addEventListener("click", () => {
   renderTasks();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const sidebar = document.querySelector('.Sidebar');
-  const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
 
-  toggleSidebarBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('sidebar-hidden');
+toggleSidebarBtn.addEventListener('click', () => {
+  const isVisible = sidebar.classList.toggle('sidebar-visible');
+  sidebar.classList.toggle('sidebar-hidden', !isVisible);
 
-    if (sidebar.classList.contains('sidebar-hidden')) {
-      toggleSidebarBtn.textContent = '👀';
-    } else {
-      toggleSidebarBtn.textContent = '🚫 Hide Sidebar';
-    }
-  });
-  renderTasks();
+  const sideDisSpan = toggleSidebarBtn.querySelector('.side-dis');
+  if (isVisible) {
+    sideDisSpan.textContent = 'Hide Sidebar';
+    toggleSidebarBtn.firstChild.textContent = '🚫 ';
+  } else {
+    sideDisSpan.textContent = 'Show Sidebar';
+    toggleSidebarBtn.firstChild.textContent = '👀 ';
+  }
 });
+ 
+  renderTasks();
+
 // Handle add new task
 function addNewTask() {
   const newTask = {
