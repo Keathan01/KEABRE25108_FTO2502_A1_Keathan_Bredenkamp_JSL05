@@ -43,6 +43,10 @@ const initialTasks = [
 //
 const savedTasks = JSON.parse(localStorage.getItem("tasks"));
 let tasks = savedTasks || [...initialTasks];
+// saves in local storage
+function saveToLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 //get containers
 const todoColumn = document.getElementById("todo-column");
