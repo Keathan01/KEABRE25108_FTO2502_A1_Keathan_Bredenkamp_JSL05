@@ -9,19 +9,21 @@
 
   <body>
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
+     <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">🚫 <span id="side-dis">Hide Sidebar</span></button>
     <nav class="Sidebar">
       <div>
         <img class="desktop-only" src="./assets/logo-light.svg" alt=desktop-logo/>
         <h4 id="side-heading">ALL BOARDS (1)</h4>
 
         <button class="desktop-btn">Launch Career</button>
+
       </div>
-      <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">☰</button>
+    
     </nav>
 
+
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
-    <div>
-      <header class="heading">
+    <header class="heading">
         <img class="mobile-only"src="./assets/favicon.svg" alt="Mobile-logo" />
         <div class="btn">
           <h2 class="header-heading">Launch Career</h2>
@@ -40,10 +42,7 @@
               <h4 class="ball-container">TODO (2)</h4>
             </div>
              <div id="todo-column"></div>          <!-- Tasks container for TODO -->
-            <div>
-              <div class="tasks">Launch Epic Career 🚀</div>
-              <div class="tasks">Learn Data Structures and Algorithms 📚</div>
-            </div>
+          
           </div>
           <!-- DOING Column -->
           <div>
@@ -52,27 +51,21 @@
               <h4 class="ball-container">DOING (2)</h4>
             </div>
             <div id="doing-column"></div>             <!-- Tasks container for DOING -->
-            <div>
-              <div class="tasks">Master JavaScript 💛</div>
-              <div class="tasks">Keep on Going 🏆</div>
-            </div>
+            
           </div>
           <!-- DONE Column -->
           <div>
             <div class="balls">
                 <span id="ball-3"></span>
-              <h4 class="ball-container"></span>DONE (2)</h4>
+              <h4 class="ball-container">DONE (2)</h4>
               
             </div>
        <div id="done-column"></div>                <!-- Tasks container for DONE -->
-            <div>
-              <div class="tasks">Contribute to Open Source Projects 🌐</div>
-              <div class="tasks">Build Portfolio Projects 🛠️</div>
-            </div>
+            
           </div>
         </main>
       </div>
-    </div>
+  
     <!--Modal-->
     <div id="modal" class="modal hidden">
       <div class="modal-content">

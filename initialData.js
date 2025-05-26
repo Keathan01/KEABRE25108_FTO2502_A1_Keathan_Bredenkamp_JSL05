@@ -112,12 +112,19 @@ deleteBtn.addEventListener("click", () => {
   renderTasks();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.querySelector('.Sidebar');
+  const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
 
-const sidebar = document.querySelector('.Sidebar');
-const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
+  toggleSidebarBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('sidebar-hidden');
 
-toggleSidebarBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('hidden');
+    if (sidebar.classList.contains('sidebar-hidden')) {
+      toggleSidebarBtn.textContent = '👀';
+    } else {
+      toggleSidebarBtn.textContent = '🚫 Hide Sidebar';
+    }
+  });
 });
 // Handle add new task
 document.getElementById("add-task-btn").addEventListener("click", () => {
