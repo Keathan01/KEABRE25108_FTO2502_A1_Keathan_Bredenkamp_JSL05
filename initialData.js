@@ -146,4 +146,9 @@ function addNewTask() {
     status: "todo",
   };
   tasks.push(newTask);
-  saveToLocalStorage(); 
+  saveToLocalStorage();
+  renderTasks();
+  openModal();}
+
+document.getElementById("add-task-btn").addEventListener("click", addNewTask);
+document.getElementById("mobile-btn").addEventListener("click", addNewTask);
