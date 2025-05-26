@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Kanban board</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
+    <nav class="Sidebar">
+      <div>
+        <img class="desktop-only" src="./assets/logo-light.svg" alt=desktop-logo/>
+        <h4 id="side-heading">ALL BOARDS (1)</h4>
+
+        <button class="desktop-btn">Launch Career</button>
+      </div>
+      <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">☰</button>
+    </nav>
+
+    <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
+    <div>
+      <header class="heading">
+        <img class="mobile-only"src="./assets/favicon.svg" alt="Mobile-logo" />
+        <div class="btn">
+          <h2 class="header-heading">Launch Career</h2>
+          <button id="add-task-btn" class="add-task-btn">+ Add new task</button>
+        </div>
+      
+      </header>
+
+      <div class="main-body">
+        <main class="list-section" id="taskColumns">
+          <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
+          <div>
+            <div class="balls">
+              <span id="ball-1"></span>
+              <h4 class="ball-container">TODO (2)</h4>
+            </div>
+             <div id="todo-column"></div>          <!-- Tasks container for TODO -->
+            <div>
+              <div class="tasks">Launch Epic Career 🚀</div>
+              <div class="tasks">Learn Data Structures and Algorithms 📚</div>
+            </div>
+          </div>
+          <!-- DOING Column -->
+          <div>
+            <div class="balls">
+              <span id="ball-2"></span>
+              <h4 class="ball-container">DOING (2)</h4>
+            </div>
+            <div id="doing-column"></div>             <!-- Tasks container for DOING -->
+            <div>
+              <div class="tasks">Master JavaScript 💛</div>
+              <div class="tasks">Keep on Going 🏆</div>
+            </div>
+          </div>
+          <!-- DONE Column -->
+          <div>
+            <div class="balls">
+                <span id="ball-3"></span>
+              <h4 class="ball-container"></span>DONE (2)</h4>
+              
+            </div>
+       <div id="done-column"></div>                <!-- Tasks container for DONE -->
+            <div>
+              <div class="tasks">Contribute to Open Source Projects 🌐</div>
+              <div class="tasks">Build Portfolio Projects 🛠️</div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!--Modal-->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        <h2>Edit Task</h2>
+        <label>Title:</label>
+        <input type="text" id="modalTitle"/>
+        <label>Description</label>
+        <textarea id="modalDes" rows="4"></textarea>
+        <label>Status:</label>
+        <select id="modalStatus">
+          <option value="todo">To Do</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
+    <div class="sav-del">
+        <button id="saveTask">Save</button>
+        <button id="deleteTask">Delete</button>
+        </div>
+      </div>
+      </div>
+    <script src="initialData.js"></script>
+  </body>
+</html>
