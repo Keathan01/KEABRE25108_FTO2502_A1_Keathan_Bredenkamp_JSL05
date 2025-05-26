@@ -148,8 +148,6 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
   renderTasks();
   openModal(newTask);
 });
-// Initial render
-renderTasks();
 
 document.getElementById("mobile-btn").addEventListener("click", () => {
   const newTask = {
@@ -162,6 +160,3 @@ document.getElementById("mobile-btn").addEventListener("click", () => {
   renderTasks();
   openModal(newTask);
 });
-// Initial render
-renderTasks();
-
