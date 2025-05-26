@@ -105,6 +105,9 @@ saveBtn.addEventListener("click", () => {
   currentTask.status = statusSelect.value;
 
   modal.classList.add("hidden");
+  currentTask=null;
+  saveToLocalStorage();
+
   renderTasks();
 });
 
