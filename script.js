@@ -54,3 +54,48 @@ async function fetchTasksFromAPI() {
     }
   }
 } 
+function saveToLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function renderTasks() {
+  todoColumn.innerHTML = "";
+  doingColumn.innerHTML = "";
+  doneColumn.innerHTML = "";
+
+  const todoTasks = tasks.filter(t => t.status === "todo");
+  const doingTasks = tasks.filter(t => t.status === "doing");
+  const doneTasks = tasks.filter(t => t.status === "done");
+
+  const sortByPriority = (a, b) =>
+    (priorityOrder[a.priority] || 2) - (priorityOrder[b.priority] || 2);
+
+  todoTasks.sort(sortByPriority);
+  doingTasks.sort(sortByPriority);
+  doneTasks.sort(sortByPriority);
+
+  function renderTaskList(taskList, container) {
+    taskList.forEach(task => {
+      const taskEl = document.createElement("div");
+      taskEl.classList.add("tasks");
+
+      const priorityBadge = document.createElement("span");
+      priorityBadge.classList.add("priority-badge");
+
+      if (task.priority === "urgent") priorityBadge.classList.add("priority-urgent");
+      else if (task.priority === "medium") priorityBadge.classList.add("priority-medium");
+      else priorityBadge.classList.add("priority-low");
+
+      taskEl.textContent = task.title;
+      taskEl.appendChild(priorityBadge);
+
+      taskEl.addEventListener("click", () => openModal(task));
+
+      container.appendChild(taskEl);
+    });
+  }
+
+  renderTaskList(todoTasks, todoColumn);
+  renderTaskList(doingTasks, doingColumn);
+  renderTaskList(doneTasks, doneColumn);
+}
