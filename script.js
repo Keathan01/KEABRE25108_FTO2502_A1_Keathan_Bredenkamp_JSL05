@@ -187,3 +187,33 @@ function addNewTask() {
 
 addBtnDesktop.addEventListener("click", addNewTask);
 addBtnMobile.addEventListener("click", addNewTask);
+chk.addEventListener("change", () => {
+  document.body.classList.toggle('dark');
+});
+
+toggleSidebarBtn.addEventListener("click", () => {
+  const isVisible = sidebar.classList.toggle("sidebar-visible");
+  sidebar.classList.toggle("sidebar-hidden", !isVisible);
+  document.body.classList.toggle("sidebar-collapsed", !isVisible);
+
+  if (isVisible) {
+    toggleIcon.textContent = "🚫";
+    sideDisSpan.textContent = "Hide Sidebar";
+    sideDisSpan.style.display = "inline";
+  } else {
+    toggleIcon.textContent = "👀";
+    sideDisSpan.textContent = "";
+    sideDisSpan.style.display = "none";
+  }
+});
+
+// Initialize app
+(function init() {
+  const stored = localStorage.getItem("tasks");
+  if (stored) {
+    tasks = JSON.parse(stored);
+    renderTasks();
+  }
+  fetchTasksFromAPI();
+})();
+
