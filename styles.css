@@ -638,7 +638,9 @@ width: 90%;
   display: none;
 }
 
-
+#side-heading{
+  display: none;
+}
 
 
 h2.header-heading{
@@ -743,6 +745,12 @@ height: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: var(--task-bg-color, #fff);
+}
+.idea{
+  display: none;
+}
+.desktop-btn{
+  display: none;
 }
 
 }
