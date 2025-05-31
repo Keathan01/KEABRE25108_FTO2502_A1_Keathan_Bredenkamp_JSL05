@@ -1,13 +1,5 @@
 
 
-
-
-
-
-
-
-
-
 .tasks {
   display: flex;
   justify-content: space-between; /* pushes content to edges */
@@ -322,7 +314,19 @@ display: inline;
 .main-body{
   height: auto;
 }
+.idea{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 
+.kan{
+  color: #000000;
+  font-size: 28px;
+  position: relative;
+  top: 10px;
+ 
+}
 .Sidebar {
   grid-area: Sidebar;
   top: 0;
@@ -338,7 +342,7 @@ display: inline;
 .desktop-only {
   margin-left: 30px;
   margin-top: 20px;
-  width: 150px;
+  width: 30px;
 }
 .btn{
   display: flex;
@@ -369,6 +373,11 @@ display: inline;
   justify-content: center;
   z-index: 999;
 }
+
+body.dark .kan{
+  color: #fff;
+}
+
 
 .hidden{
   display: none;
@@ -604,6 +613,11 @@ body.dark .modal-content {
   margin-bottom: 10px;
 }
 @media (max-width: 480px) {
+
+  html{
+width: 90%;
+
+  }
   body{
     display: flex;
     flex-direction: column;
@@ -641,7 +655,7 @@ h2.header-heading{
 
 .add-task-btn{
   position: relative;
-  left: 370px;
+  left: 330px;
   bottom: 30px;
   width:40px;
   height:40px;
@@ -651,7 +665,7 @@ h2.header-heading{
   display: none;
 }
 .header-heading{
-  width: 90%;
+  width: 100%;
   overflow: hidden;
   object-fit: contain;
 }
