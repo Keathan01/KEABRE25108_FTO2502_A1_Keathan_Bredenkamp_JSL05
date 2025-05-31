@@ -4,89 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Kanban board</title>
-    <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
-     <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">🚫 <span id="side-dis">Hide Sidebar</span></button>
+    <!-- Sidebar toggle -->
+    <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">
+      <span id="toggle-icon">🚫</span>
+      <span id="side-dis">Hide Sidebar</span>
+    </button>
+
+    <!-- Sidebar -->
     <nav class="Sidebar">
       <div>
-        <img class="desktop-only" src="./assets/logo-light.svg" alt=desktop-logo/>
+        <div>
+        <img class="desktop-only" src="assets/assets/logo-light.svg"" alt="logo" />
+      
+
+     </div>
         <h4 id="side-heading">ALL BOARDS (1)</h4>
-
         <button class="desktop-btn">Launch Career</button>
-
+        <div class="toggle-container">
+          <img src="assets/assets/Build UI for onboard (1).png" id="light" />
+          <input type="checkbox" class="checkbox" id="chk" />
+          <label class="label" for="chk"><div class="ball"></div></label>
+          <img src="assets/assets/Build UI for onboard copy.png" id="dark" />
+        </div>
       </div>
-    
     </nav>
 
-
-    <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
-    <header class="heading">
-        <img class="mobile-only"src="./assets/favicon.svg" alt="Mobile-logo" />
-        <div class="btn">
-          <h2 class="header-heading">Launch Career</h2>
-          <button id="add-task-btn" class="add-task-btn">+ Add new task</button>
-          <button id="mobile-btn">+</button>
-        </div>
-      
-      </header>
-
-      <div class="main-body">
-        <main class="list-section" id="taskColumns">
-          <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
-          <div>
-            <div class="balls">
-              <span id="ball-1"></span>
-              <h4 class="ball-container">TODO (2)</h4>
-            </div>
-             <div id="todo-column"></div>          <!-- Tasks container for TODO -->
-          
-          </div>
-          <!-- DOING Column -->
-          <div>
-            <div class="balls">
-              <span id="ball-2"></span>
-              <h4 class="ball-container">DOING (2)</h4>
-            </div>
-            <div id="doing-column"></div>             <!-- Tasks container for DOING -->
-            
-          </div>
-          <!-- DONE Column -->
-          <div>
-            <div class="balls">
-                <span id="ball-3"></span>
-              <h4 class="ball-container">DONE (2)</h4>
-              
-            </div>
-       <div id="done-column"></div>                <!-- Tasks container for DONE -->
-            
-          </div>
-        </main>
+    <!-- Header -->
+  <header class="heading">
+            <img class="mobile-only"src="assets/favicon.svg" alt="Mobile-logo" />
+      <div class="btn">
+        <h2 class="header-heading">Launch Career</h2>
+        <button id="add-task-btn" class="add-task-btn">+<span id="dis">Add New Task</span> </button>
+        <button id="mobile-btn">+</button>
       </div>
-  
-    <!--Modal-->
+    </header>
+
+
+
+
+
+
+    <!-- Main Board -->
+    <div class="main-body">
+      <main class="list-section">
+        <!-- TODO -->
+        <div>
+          <div class="balls">
+            <span id="ball-1"></span>
+            <h4 class="ball-container">TODO</h4>
+          </div>
+          <div id="todo-column"></div>
+        </div>
+        <!-- DOING -->
+        <div>
+          <div class="balls">
+            <span id="ball-2"></span>
+            <h4 class="ball-container">DOING</h4>
+          </div>
+          <div id="doing-column"></div>
+        </div>
+        <!-- DONE -->
+        <div>
+          <div class="balls">
+            <span id="ball-3"></span>
+            <h4 class="ball-container">DONE</h4>
+          </div>
+          <div id="done-column"></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal -->
     <div id="modal" class="modal hidden">
       <div class="modal-content">
         <button class="close-modal">&times;</button>
         <h2>Edit Task</h2>
+
         <label>Title:</label>
-        <input type="text" id="modalTitle"/>
-        <label>Description</label>
+        <input type="text" id="modalTitle" />
+
+        <label>Description:</label>
         <textarea id="modalDes" rows="4"></textarea>
+
         <label>Status:</label>
         <select id="modalStatus">
           <option value="todo">To Do</option>
           <option value="doing">Doing</option>
           <option value="done">Done</option>
         </select>
-    <div class="sav-del">
-        <button id="saveTask">Save</button>
-        <button id="deleteTask">Delete</button>
+
+<label>Priority:</label>
+<select id="modalPriority">
+  <option value="urgent">Urgent</option>
+  <option value="medium" selected>Medium</option>
+  <option value="low">Low</option>
+</select>
+        <div id="loading-indicator" class="hidden">Loading tasks...</div>
+
+
+        <div class="sav-del">
+          <button id="saveTask">Save</button>
+          <button id="deleteTask">Delete</button>
         </div>
       </div>
-      </div>
-    <script src="initialData.js"></script>
+    </div>
+
+    <script src="script.js" defer></script>
+   
+
   </body>
 </html>
