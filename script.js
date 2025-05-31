@@ -125,3 +125,65 @@ closeModalBtn.addEventListener("click", () => {
   currentTask = null;
   clearModalInputs();
 });
+function clearModalInputs() {
+  titleInput.value = "";
+  descInput.value = "";
+  statusSelect.value = "todo";
+  prioritySelect.value = "medium";
+}
+
+saveBtn.addEventListener("click", () => {
+  if (!titleInput.value.trim()) {
+    alert("Task title cannot be empty.");
+    return;
+  }
+
+  if (!currentTask) return;
+
+  currentTask.title = titleInput.value.trim();
+  currentTask.description = descInput.value.trim();
+  currentTask.status = statusSelect.value;
+  currentTask.priority = prioritySelect.value;
+
+  const existingIndex = tasks.findIndex(t => t.id === currentTask.id);
+  if (existingIndex === -1) {
+    tasks.push(currentTask); // Add new task
+  } else {
+    tasks[existingIndex] = currentTask; // Update existing task
+  }
+
+  saveToLocalStorage();
+  renderTasks();
+
+  modal.classList.add("hidden");
+  currentTask = null;
+  clearModalInputs();
+});
+
+deleteBtn.addEventListener("click", () => {
+  if (!currentTask) return;
+
+  const confirmed = confirm("Are you sure you want to delete this task?");
+  if (!confirmed) return;
+
+  tasks = tasks.filter(t => t.id !== currentTask.id);
+  saveToLocalStorage();
+  renderTasks();
+
+  modal.classList.add("hidden");
+  currentTask = null;
+  clearModalInputs();
+});
+
+function addNewTask() {
+  openModal({
+    id: Date.now(),
+    title: "",
+    description: "",
+    status: "todo",
+    priority: "medium",
+  }, true);
+}
+
+addBtnDesktop.addEventListener("click", addNewTask);
+addBtnMobile.addEventListener("click", addNewTask);
