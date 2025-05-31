@@ -28,3 +28,29 @@ const chk = document.getElementById("chk"); // dark mode toggle
 const promptMsg = document.getElementById("prompt-msg"); // message container
 
 let currentTask = null; 
+
+async function fetchTasksFromAPI() {
+  if (!promptMsg) return; // in case promptMsg doesn't exist
+  promptMsg.textContent = "Loading tasks...";
+  try {
+    const res = await fetch("https://jsl-kanban-api.vercel.app/");
+    if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+
+    const data = await res.json();
+    tasks = data;
+
+    saveToLocalStorage();
+    renderTasks();
+    promptMsg.textContent = "";
+  } catch (err) {
+    // fallback to localStorage if available
+    const stored = localStorage.getItem("tasks");
+    if (stored) {
+      tasks = JSON.parse(stored);
+      renderTasks();
+      promptMsg.textContent = "⚠️ Failed to load from API, loaded local data.";
+    } else {
+      promptMsg.textContent = `❌ Error loading tasks: ${err.message}`;
+    }
+  }
+} 
