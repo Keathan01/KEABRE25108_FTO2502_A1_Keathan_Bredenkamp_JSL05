@@ -99,3 +99,29 @@ function renderTasks() {
   renderTaskList(doingTasks, doingColumn);
   renderTaskList(doneTasks, doneColumn);
 }
+function openModal(task, isNew = false) {
+  currentTask = task;
+
+  if (isNew) {
+    modalHeading.textContent = "Create Task";
+    saveBtn.textContent = "Create";
+    deleteBtn.style.display = "none";
+  } else {
+    modalHeading.textContent = "Edit Task";
+    saveBtn.textContent = "Save";
+    deleteBtn.style.display = "inline-block";
+  }
+
+  titleInput.value = task.title || "";
+  descInput.value = task.description || "";
+  statusSelect.value = task.status || "todo";
+  prioritySelect.value = task.priority || "medium";
+
+  modal.classList.remove("hidden");
+}
+
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  currentTask = null;
+  clearModalInputs();
+});
