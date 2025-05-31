@@ -1,0 +1,748 @@
+
+
+
+.tasks {
+  display: flex;
+  justify-content: space-between; /* pushes content to edges */
+  align-items: center; /* vertically center */
+  padding: 8px 12px; /* adjust as needed */
+  border-bottom: 1px solid #ddd; /* example styling */
+   box-shadow: 0 5px 6px #364e7e1a;
+  white-space: nowrap;
+ font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+   border-radius: 8px;
+   width: 90%;
+   margin-top: 10px;
+}
+
+.tasks:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+#Kanban {
+  width: 120px;
+ position: relative;
+ right:150px ;
+  
+}
+body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+ grid-template-rows: 100px auto 1fr;
+  grid-template-areas:
+    "Sidebar heading"
+    "Sidebar main-body"
+    "Sidebar main-body";
+  column-gap: 2px;
+  row-gap: 2px;
+  background-color: #e4ebfa;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  height: 100vh;
+}
+
+.main-body {
+  grid-area: main-body;
+  background-color: #e4ebfa;
+  color:black;
+
+  
+} /* keep this here */
+
+
+body.dark .main-body {
+  background-color:#20212C;
+  color: #eee; /* keep this too */
+}
+.tasks {
+  background-color:#ffff; /* light mode */
+  color: black;
+}
+#toggle-sidebar-btn{
+  width: 24%;
+
+}
+
+body.dark .tasks {
+  background-color:#20212C;/* dark mode */
+  color :#fff;
+}
+body.dark .kanban-logo {
+  display: none;
+}
+
+body.dark #toggle-sidebar-btn {
+  /* styles here */
+  background-color:#635FC7;
+  color: #fff;
+}
+body.dark .toggle-container {
+  background-color: #635FC7;
+}
+
+body.dark .label{
+  background-color:#000000;
+}
+
+
+body.dark .main-body {
+  border-top: 1px solid white;
+}
+
+body.dark .Sidebar {
+  border-right: 1px solid white;
+}
+
+
+.heading{
+  height: 80%;
+}
+
+.heading,
+.Sidebar,
+.main-body {
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+body.dark .heading,
+body.dark .Sidebar,
+body.dark .main-body {
+  background-color:#20212C;; /* or darker shade you prefer */
+}
+
+
+
+
+
+body.sidebar-collapsed {
+  grid-template-columns: 0px auto; /* remove sidebar space */
+}
+body.sidebar-collapsed .Sidebar {
+  display: none; /* Sidebar and its content fully removed */
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* The label is the toggle track */
+.label {
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1.5);
+}
+
+/* The ball is the toggle knob */
+.ball {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/* Move ball to right when checked */
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+/* Dark mode body background and text */
+
+    body {
+      background-color: white;
+      color: black;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+ body.dark {
+  background-color: #222;
+  color: #eee;
+}
+
+.toggle-container {
+  border: 2px solid #e4ebfa;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 6px;
+  border: none;
+  background-color: #fff; /* Optional: for visibility */
+  /* Center the switch inside the box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%; /* Adjust as needed */
+  height: 25px;
+  position: fixed;
+  top: 30rem;
+  background-color: #F4F7FD;
+  left:19px;
+ 
+}
+
+
+.priority-badge {
+display: inline;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.priority-urgent {
+  background-color: red;
+}
+
+.priority-medium {
+  background-color: orange;
+}
+
+.priority-low {
+  background-color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#light{
+  position: absolute;
+  left:21px;
+ 
+}
+#dark{
+  position: relative;
+  left: 28px;
+  bottom: 7px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.label {
+  width: 40px;
+  height: 16px;
+  background-color: #635FC7;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  top: 0px;
+  left: 3px;
+}
+#dark{
+  position: relative;
+ bottom: 0px;
+ right: 1px;
+ 
+}
+
+.ball {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 9px;
+  height: 9px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+#chk:checked + .label .ball {
+  transform: translateX(19px);
+
+}
+
+.priority-badge {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  
+  vertical-align: middle;
+}
+
+.priority-badge.urgent {
+  background-color: rgb(218, 0, 0);
+}
+.priority-badge.medium {
+  background-color: rgba(255, 230, 0, 0.849);
+}
+.priority-badge.low {
+  background-color: rgb(5, 148, 5);
+}
+
+
+
+
+.tasks.urgent { border-left:5px solid #ff4d4d; }
+.tasks.medium { border-left:5px solid #fbbc04; }
+.tasks.low    { border-left:5px solid #34a853; }
+
+
+.main-body{
+  height: auto;
+}
+.idea{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.kan{
+  color: #000000;
+  font-size: 28px;
+  position: relative;
+  top: 10px;
+ 
+}
+.Sidebar {
+  grid-area: Sidebar;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#fff;
+  color: white;
+  transition: transform 0.3s ease;
+  transform: translateX(0); /* visible by default on desktop */
+  z-index: 1000;
+}
+.desktop-only {
+  margin-left: 30px;
+  margin-top: 20px;
+  width: 30px;
+}
+.btn{
+  display: flex;
+  justify-content: space-between;
+}
+.add-task-btn{
+  background-color: #635fc7;
+   color: #ffff;
+   height: 20%;
+   margin-top: 15px;
+   border-radius: 20px;
+   font-size: 14px;
+   padding: 10px 20px;
+   margin-right: 20px;
+   border: none;
+   cursor: pointer;
+}
+/* modal backdrop */
+.modal{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+body.dark .kan{
+  color: #fff;
+}
+
+
+.hidden{
+  display: none;
+}
+/*modal content box*/
+.modal-content{
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width:90%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* close btn */
+.close-modal{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* Textarea and inputs */
+.modal-content input,
+.modal-content textarea,
+.modal-content select{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  resize: none;
+}
+/* Save Button */
+#saveTask {
+  background-color: #635fc7;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+#saveTask:hover {
+  background-color: #524bc5;
+}
+
+#side-heading {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(130, 143, 163);
+  margin-left: 45px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.header-heading {
+  margin-left: 20px;
+  
+}
+.mobile-btn {
+  display: none;
+}
+.sav-del {
+ 
+  display: flex;
+  justify-content: space-evenly; /* aligns buttons to the left */
+  gap: 10px; /* space between buttons */
+}
+
+
+.sav-del button {
+  flex: 1 1 auto; /* let buttons grow/shrink equally */
+  min-width: 80px; /* minimum width */
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}
+
+#saveTask {
+  background-color: #635FC7;
+  color: white;
+}
+
+#deleteTask {
+  width: 90%;
+  background-color: #f44336;
+  color: white;
+}
+v
+#deleteTask{
+  width: 50%;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;}
+
+.toggle-sidebar-btn {
+  display: flex; /* visible on desktop */
+  position: fixed;
+  bottom: 2rem;
+  background-color: #e4ebfa;
+  color:  #635FC7; 
+  font-size: 19px;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  width: auto;
+  cursor: pointer;
+  z-index: 1100;
+ align-content: space-evenly;
+border-bottom-right-radius:24px ;
+border-top-right-radius:24px;
+
+}
+
+body.dark .modal-content {
+  background-color: #2b2c37;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+}
+
+
+#side-dis{
+  margin-left: 40px;
+  font-weight: 100;
+}
+
+.desktop-btn {
+  background-color: #635fc7;
+  color: #ffff;
+  border: none;
+  width: 95%;
+  height: 40px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+  padding-right: 90px;
+}
+.mobile-only {
+  display: none;
+}
+  #mobile-btn{
+    display: none;
+  }
+
+.heading {
+  grid-area: heading;
+  background-color: #ffff;
+  height: 100px;
+}
+.main-body {
+  grid-area: main-body;
+  background-color: #e4ebfa;
+}
+
+
+/* Hidden state */
+.sidebar-hidden {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+/* Toggle button - default hidden */
+
+
+
+.loading-msg,
+.error-msg {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.error-msg {
+  color: red;
+}
+
+.ball-container {
+  font-weight: normal;
+  color: rgb(130, 143, 163);
+  font-size: 11px;
+  margin: 0;
+}
+.list-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 20px;
+  grid-template-rows: auto auto auto;
+  margin-top: 20px;
+}
+#ball-1 {
+  background-color: #49c4e5;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+}
+#ball-2 {
+  background-color: #8471f2;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+}
+#ball-3 {
+  background-color: #67e2ae;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+}
+.balls {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 480px) {
+
+  html{
+width: 90%;
+
+  }
+  body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .modal-content{
+    width: 70%;
+  }
+.modal
+{
+  margin-left: 20px;
+  width: 90%;
+}
+.toggle-sidebar-btn{
+  display: none;
+}
+
+
+
+
+h2.header-heading{
+  display: none;
+}
+
+.mobile-only{
+  display: inline;
+  width: 10%;
+  position: relative;
+  top: 30px;
+  left: 10px;
+ 
+}
+
+.add-task-btn{
+  position: relative;
+  left: 330px;
+  bottom: 30px;
+  width:40px;
+  height:40px;
+}
+
+#dis{
+  display: none;
+}
+.header-heading{
+  width: 100%;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+
+  .Sidebar {
+    display: none;
+    transform: translateX(-100%);
+  }
+
+  .Sidebar.sidebar-visible {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .Sidebar-toggle {
+    display: flex;
+  }
+
+ .main-body{
+  display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+width: 90%;
+
+gap: 10px;
+height: auto;
+ }
+ .balls{
+  margin-top: 20px;
+ }
+
+  .tasks {
+   font-size: 14px;
+    width: 80%;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .task-column {
+    min-width: 100%;
+  }
+
+  .task 
+ {   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+    padding: 10px;
+  }
+
+  .theme-toggle {
+    top: 60px;
+    right: 100px;
+  }
+  .list-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #todo-column,
+  #doing-column,
+  #done-column {
+    display: contents; /* This allows their children (.task) to flow into one parent container */
+  }
+
+  .task {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+.task {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--task-bg-color, #fff);
+}
+
+}
